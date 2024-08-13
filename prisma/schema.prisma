@@ -1,0 +1,69 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model SurveyResponses {
+  responseId       Int             @id @default(autoincrement()) @map("responsesId")
+  corporationType  CorporationType @map("corporationType")
+  employeeNumber   EmployeeNumber  @map("employeeNumber")
+  question1Answer  String          @map("question1Answer")
+  question2Answer  String          @map("question2Answer")
+  question3Answer  String          @map("question3Answer")
+  question4Answer  String?         @map("question4Answer")
+  question5Answer  String?         @map("question5Answer")
+  question6Answer  String          @map("question6Answer")
+  question7Answer  String          @map("question7Answer")
+  question8Answer  String?         @map("question8Answer")
+  question9Answer  String          @map("question9Answer")
+  question10Answer String?         @map("question10Answer")
+  question11Answer String          @map("question11Answer")
+  question12Answer String?         @map("question12Answer")
+
+  @@map("SurveyResponses")
+}
+
+enum CorporationType {
+  PRIVATE
+  SMALLFRANCHISE
+  LARGEFRANCHISE
+  ETC
+}
+
+enum EmployeeNumber {
+  LESS5
+  MORE5LESS20
+  MORE21
+}
+
+enum TimeSlot {
+  NINETOTEN // "9~10시"
+  TENTOELVEN // "10~11시"
+  ELEVENTOTWELVE // "11~12시"
+  TWELVETOTHIRTEEN // "12~13시"
+  THIRTEENTOFOURTEEN // "13~14시"
+  FOURTEENTOFIFTEEN // "14~15시"
+  FIFTEENTOSIXTEEN // "15~16시"
+}
+
+model ConsultationResponses {
+  id        Int      @id @default(autoincrement()) @map("id")
+  name      String   @map("name")
+  contact   String   @map("contact")
+  email     String?  @map("email")
+  timeSlot  TimeSlot @map("time_slot")
+  message   String?  @map("message")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("ConsultationResponses")
+}
