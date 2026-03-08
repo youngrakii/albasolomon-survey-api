@@ -2,6 +2,10 @@
 
 "알바솔로몬" 랜딩페이지에서 사용되는 **설문조사 응답 수집** 및 **상담 신청 접수**를 처리하는 REST API 서버입니다.
 
+<img width="954" height="1146" alt="image" src="https://github.com/user-attachments/assets/117a78cf-6702-4c6a-afc8-e861d11032d6" />
+<img width="913" height="1090" alt="image" src="https://github.com/user-attachments/assets/77e5e37c-5340-438a-bd89-195f3b48ace4" />
+
+
 ## 기술 스택
 
 - **Runtime**: Node.js (ES Modules)
@@ -167,3 +171,4 @@ npm start
 - `timeSlot` (Enum: TimeSlot)
 - `message` (String, 선택)
 - `createdAt` (DateTime, 자동 생성)
+
